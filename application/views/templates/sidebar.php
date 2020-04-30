@@ -1,9 +1,8 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="<?= base_url('user') ?>" class="brand-link py-5">
-        <i class="fas fa-laptop-code mx-3"></i>
-        <span class="brand-text font-weight-bold">CI Admin</span>
+    <a href="<?= base_url('user') ?>" class="brand-link py-3 text-center">
+        <img src="<?= base_url('assets/img/tamamuhammad.png') ?>" width="55px">
     </a>
 
     <!-- Sidebar -->

@@ -22,30 +22,7 @@
 <script src="<?= base_url('assets/'); ?>js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url('assets/'); ?>js/demo.js"></script>
-
-<script>
-    $('.custom-file-input').on('change', function() {
-        let fileName = $(this).val().split('\\').pop();
-        $(this).next('.custom-file-label').addClass('selected').html(fileName);
-    });
-
-    $('.access').on('click', function() {
-        const roleId = $(this).data('role');
-        const menuId = $(this).data('menu');
-
-        $.ajax({
-            url: "<?= base_url('admin/changeAccess'); ?>",
-            method: 'post',
-            data: {
-                roleId: roleId,
-                menuId: menuId
-            },
-            success: function() {
-                document.location.href = "<?= base_url('admin/roleAccess/'); ?>" + roleId;
-            }
-        });
-    });
-</script>
+<script src="<?= base_url('assets/'); ?>js/script.js"></script>
 </body>
 
 </html>

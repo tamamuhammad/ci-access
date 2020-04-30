@@ -13,7 +13,7 @@
                 <div class="col-6">
                     <?php echo form_error('menu', '<div class="alert alert-danger" role="alert">', '</div>');
                     echo $this->session->flashdata('message'); ?>
-                    <a href="" class="btn btn-info mb-3" data-toggle="modal" data-target="#addModal">Add New Menu</a>
+                    <a href="" class="btn btn-info mb-3 tambah" data-toggle="modal" data-target="#addModal">Add New Menu</a>
                     <table class="table table-hover">
                         <thead>
                             <th scope="col">#</th>
@@ -29,8 +29,8 @@
                                     <th><?= $i++; ?></th>
                                     <td><?= $m['menu'] ?></td>
                                     <td>
-                                        <a href="" class="badge badge-success">edit</a>
-                                        <a href="" class="badge badge-danger">delete</a>
+                                        <a href="<?= base_url('menu/edit/') . $m['id'] ?>" class="badge badge-success edit" data-toggle="modal" data-target="#addModal" data-id="<?= $m['id'] ?>">edit</a>
+                                        <a href="<?= base_url('menu/delete/') . $m['id'] ?>" class="badge badge-danger" onclick="confirm('yakin?')">delete</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -54,8 +54,8 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url('menu'); ?>" method="post">
-                <div class="modal-body">
+            <div class="modal-body">
+                <form action="<?= base_url('menu'); ?>" method="post">
                     <div class="form-group">
                         <input type="text" class="form-control" name="menu" id="menu" placeholder="Menu Name">
                     </div>
@@ -63,7 +63,8 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-info">Add Menu</button>
                     </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </div>

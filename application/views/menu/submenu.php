@@ -16,7 +16,7 @@
                     <?php else : ?>
                         <?= $this->session->flashdata('message'); ?>
                     <?php endif; ?>
-                    <a href="" class="btn btn-info mb-3" data-toggle="modal" data-target="#addSubModal">Add New Submenu</a>
+                    <a href="" class="btn btn-info mb-3 tambahsm" data-toggle="modal" data-target="#addSubModal">Add New Submenu</a>
                     <table class="table table-hover">
                         <thead>
                             <th scope="col">#</th>
@@ -37,11 +37,11 @@
                                     <td><?= $sm['title'] ?></td>
                                     <td><?= $sm['menu'] ?></td>
                                     <td><?= $sm['url'] ?></td>
-                                    <td><?= $sm['icon'] ?></td>
+                                    <td><i class="<?= $sm['icon'] ?>"></i></td>
                                     <td><?= $sm['is_active'] ?></td>
                                     <td>
-                                        <a href="" class="badge badge-success">edit</a>
-                                        <a href="" class="badge badge-danger">delete</a>
+                                        <a href="<?= base_url('menu/editsm') ?>" class="badge badge-success editsm" data-toggle="modal" data-target="#addSubModal" data-id="<?= $sm['id'] ?>">edit</a>
+                                        <a href="<?= base_url('menu/remove/') . $sm['id'] ?>" class="badge badge-danger" onclick="confirm('yakin?')">delete</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -65,8 +65,8 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url('menu/submenu'); ?>" method="post">
-                <div class="modal-body">
+            <div class="modal-body">
+                <form action="<?= base_url('menu/submenu') ?>" method="post">
                     <div class="form-group">
                         <label for="submenu">Submenu :</label>
                         <input type="text" class="form-control" name="submenu" id="submenu">
@@ -97,7 +97,8 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-info">Add Menu</button>
                     </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </div>
